@@ -1,0 +1,44 @@
+$borderErr:rgba(255,25,0,0.322);
+$errorBg:rgb(192 29 29 /15%);
+$errColor:rgba(235, 81, 64, 0.76);
+
+$borderSuccess:rgba(24, 108, 7, 0.322);
+$Successbg:rgba(176, 248, 169, 0.778);
+$SuccessColor:rgba(32, 227, 15, 0.76);
+
+@mixin alert($name,$borderColor,$errorBg,$errColor){
+    .#{$name}{
+        border:2px dotted $borderColor;
+        border-radius: 2px;
+        padding: 10px;
+        background-color: $errorBg;
+        color:$errColor;
+        margin: 10px;
+    
+    
+        .alert-header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        
+            .title{
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+            }
+    
+            span svg{
+                margin-right: 10px;
+            }
+        }
+        p{
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2;
+            margin-top: 5px;
+        }
+    }
+}
+
+@include alert("alert-danger",$borderErr ,$errorBg ,$errColor );
+@include alert("alert-success",$borderSuccess ,$Successbg ,$SuccessColor );
